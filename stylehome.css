@@ -848,10 +848,9 @@ header {
     }
 
     .head-left button {
-        padding: 6px 14px;
-        font-size: 14px;
+        padding: 8px 16px;
+        font-size: 16px;
     }
-
 
     .head-right3dot img {
         width: 28px;
@@ -868,7 +867,7 @@ header {
         width: 100vw;
         height: 100vh;
         object-fit: cover;
-        object-position: left 45%;
+        object-position: center 40%;
     }
 
     /* MAIN TITLE */
@@ -903,12 +902,14 @@ header {
     }
 
     .detail-btn {
-        font-size: 14px;
+        font-size: 18px;
         padding: 10px 26px;
     }
 
     .desc-row {
         gap: 10px;
+        font-size: 16px;
+        max-width: 50%;
     }
 
     .qrcode {
