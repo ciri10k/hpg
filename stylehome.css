@@ -823,7 +823,7 @@ header {
 /* =========================
    FIXED QR CODE (BOTTOM LEFT)
    ========================= */
-.qrcode-fixed {
+.qrcode {
     position: fixed;
     left: 24px;
     bottom: 24px;
