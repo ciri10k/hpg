@@ -867,7 +867,7 @@ header {
         width: 100vw;
         height: 100vh;
         object-fit: cover;
-        object-position: center 40%;
+        object-position: 38% 50% ;
     }
 
     /* MAIN TITLE */
