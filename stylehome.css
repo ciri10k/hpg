@@ -908,8 +908,11 @@ header {
 
     .desc-row {
         gap: 10px;
-        font-size: 12px;
-        max-width: 75%;
+        max-width: 70%;
+    }
+
+    .desc-row p {
+        font-size: 16px;
     }
 
     .qrcode {
