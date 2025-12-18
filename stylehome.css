@@ -127,6 +127,7 @@ header {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center center;
 }
 
 .sec1-info {
@@ -154,19 +155,7 @@ header {
 .sec1-info p {
     margin-bottom: 14px;
     color: white;
-    font-size: 20px;
     max-width: 275px;
-}
-
-.sec1-info button {
-    background-color: #edff66;
-    border: 2px solid #edff66;
-    padding: 10px 40px;
-    border-radius: 20px;
-    cursor: pointer;
-    color: black;
-    transition: 0.3s;
-    font-weight: bold;
 }
 
 .sec1-info button:hover {
@@ -185,28 +174,24 @@ header {
 }
 
 .detail-btn {
+    background-color: #edff66;
+    border: 2px solid #edff66;
     padding: 14px 40px;
-    font-size: 16px;
-    font-weight: bold;
     border-radius: 30px;
-    border: none;
     cursor: pointer;
-    background-color: rgb(238, 229, 60);
+
     color: black;
+    font-weight: bold;
+    font-size: 16px;
     white-space: nowrap;
+
     transition: transform 0.35s ease, box-shadow 0.3s ease;
     animation: button-float 2.5s ease-in-out infinite;
 }
 
-    /* Subtle idle animation */
-    @keyframes button-float {
-        0%, 100% { 
-            transform: translateY(0);}
-        50% { 
-            transform: translateY(-6px); }
-    }
-
 .detail-btn:hover {
+    background-color: transparent;
+    color: white;
     transform: scale(1.1);
     box-shadow: 0 0 20px rgba(237, 255, 102, 0.8);
 }
@@ -271,12 +256,6 @@ header {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: animate-gradient 2.5s linear infinite;
-}
-
-@keyframes animate-gradient {
-    to {
-        background-position: 200%;
-    }
 }
 
 .section2 h2 {
@@ -678,21 +657,6 @@ header {
 .autoBlur {
     animation-timeline: view();
 }
-@keyframes autoBlurAnimation {
-    0% {
-        filter: blur(40px);
-    }
-    40%, 60% {
-        filter: blur(0);
-        transform: translateY(0px);
-        opacity: 1;
-    }
-    100% {
-        filter: blur(40px);
-        transform: translateY(-200px);
-        opacity: 0;
-    }
-}
 
 /* TAKE FULL SCREEN ANIMATION */
 
@@ -701,30 +665,11 @@ header {
     animation-timeline: view(20% 10%);
 }
 
-@keyframes autoTakeFullAnimation {
-    to {
-        width: 80%;
-        height: 80vh;
-        border-radius: 0;
-        margin-bottom: 100px;
-    }
-}
-
 /* AUTO DISPLAY ANIMATION */
 
 .autoDisplay {
     animation: autoDisplayAnimation both;
     animation-timeline: view(70% 5%);
-}
-
-@keyframes autoDisplayAnimation {
-    from {
-        opacity: 0;
-        transform: translateY(200px) scale(0.3);
-    } to {
-        opacity: 1;
-        transform: translateY(0) scale(1) ;
-    }
 }
 
 .head-right3dot img.flag {
@@ -828,29 +773,6 @@ header {
             0 0 70px rgba(237, 255, 102, 0.9);
 }
 
-
-    /* =========================
-    MOBILE ADJUSTMENTS
-    ========================= */
-    @media (max-width: 768px) {
-        .qrcode {
-            left: 12px;
-            bottom: 12px;
-            width: 90px;
-            padding: 8px;
-            animation: none; /* calmer on mobile */
-        }
-
-        .qrcode.enlarged {
-            width: min(300px, 120vw);
-            max-height: 60vh;
-            left: 50%;
-            bottom: 50%;
-            transform: translate(-50%, 50%);
-        }
-    }
-
-
 .country-text:hover {
     transform: scale(1.01);
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.8),
@@ -865,9 +787,58 @@ header {
     margin-left: 0 !important;
 }
 
+/* Subtle idle animation */
+@keyframes button-float {
+    0%, 100% { 
+        transform: translateY(0);}
+    50% { 
+        transform: translateY(-6px); }
+}
+
+@keyframes autoBlurAnimation {
+    0% {
+        filter: blur(40px);
+    }
+    40%, 60% {
+        filter: blur(0);
+        transform: translateY(0px);
+        opacity: 1;
+    }
+    100% {
+        filter: blur(40px);
+        transform: translateY(-200px);
+        opacity: 0;
+    }
+}
+
+@keyframes animate-gradient {
+    to {
+        background-position: 200%;
+    }
+}
+
+@keyframes autoTakeFullAnimation {
+    to {
+        width: 80%;
+        height: 80vh;
+        border-radius: 0;
+        margin-bottom: 100px;
+    }
+}
+
+@keyframes autoDisplayAnimation {
+    from {
+        opacity: 0;
+        transform: translateY(200px) scale(0.3);
+    } to {
+        opacity: 1;
+        transform: translateY(0) scale(1) ;
+    }
+}
+
 
 /* =========================
-   MOBILE RESPONSIVE FIX
+   MOBILE RESPONSIVENESS 
    ========================= */
 @media (max-width: 768px) {
 
@@ -894,7 +865,10 @@ header {
     }
 
     .sec1-video {
+        width: 100vw;
+        height: 100vh;
         object-fit: cover;
+        object-position: left 45%;
     }
 
     /* MAIN TITLE */
@@ -910,11 +884,6 @@ header {
         margin-bottom: 10px;
     }
 
-    .sec1-info p {
-        font-size: 14px;
-        margin-bottom: 12px;
-    }
-
     /* COUNTRY NAME */
     .country-text {
         font-size: 42px;
@@ -926,12 +895,6 @@ header {
     /* PREVENT OVERFLOW */
     body {
         overflow-x: hidden;
-    }
-
-    .sec1-video {
-        width: 100vw;
-        height: 100vh;
-        object-fit: cover;
     }
 
     .flag:active {
@@ -947,4 +910,21 @@ header {
     .desc-row {
         gap: 10px;
     }
+
+    .qrcode {
+        left: 12px;
+        bottom: 12px;
+        width: 90px;
+        padding: 8px;
+        animation: none; /* calmer on mobile */
+    }
+
+    .qrcode.enlarged {
+        width: min(300px, 120vw);
+        max-height: 60vh;
+        left: 50%;
+        bottom: 50%;
+        transform: translate(-50%, 50%);
+    }
+    
 }
