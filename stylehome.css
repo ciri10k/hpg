@@ -895,11 +895,12 @@ header {
         }
 
         .qrcode.enlarged {
-            max-width: 200px;
-            position: fixed;
+            width: min(200px, 80vw);
+            max-height: 60vh;
             left: 50%;
-            bottom: 45%;
-    }
+            bottom: 50%;
+            transform: translate(-50%, 50%);
+        }
     }
 
 
