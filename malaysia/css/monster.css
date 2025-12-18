@@ -1,0 +1,89 @@
+@charset "utf-8";
+:root {
+  --bg: #0b0f1f;
+  --text: #f0f0ff;
+  --muted: #a9b3d1;
+  --accent: #ff3ec1;
+  --accent-2: #00f0ff;
+  font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif;
+}
+
+* { box-sizing: border-box; margin:0; padding:0; }
+
+body {
+  font-family: var(--font);
+  background: radial-gradient(circle at top left, #0f0f1f, #1a1a2e, #0f0f1f);
+  color: var(--text);
+  line-height: 1.6;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ---------------- ビル群 ---------------- */
+.buildings {
+  position: fixed; bottom:0; left:0; width:100%; height:250px;
+  background: repeating-linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.7) 20px, rgba(0,255,255,0.1) 22px, rgba(0,255,255,0.1) 24px);
+  z-index:0; overflow:hidden;
+}
+.building-window {
+  position: absolute; bottom:0; width:4px; height:40px;
+  background: rgba(255,62,193,0.6);
+  animation: pulse 1.5s infinite alternate;
+}
+@keyframes pulse { 0% { opacity:0.2; } 100% { opacity:1; } }
+
+/* ---------------- デジタル雨 ---------------- */
+.digital-rain {
+  position: fixed; top:0; left:0; width:100%; height:100%;
+  pointer-events:none; z-index:0;
+  font-family: monospace; white-space: nowrap;
+}
+
+/* ---------------- 流れる光線 ---------------- */
+.light-beam {
+  position: fixed; top:0; left:-100%; width:2px; height:100%;
+  background: linear-gradient(to bottom, rgba(255,0,255,0.6), rgba(0,255,255,0.6));
+  pointer-events:none; z-index:0; animation: beamMove 3s linear infinite;
+}
+.beam2 { animation-duration:4s; background: linear-gradient(to bottom, rgba(0,255,255,0.6), rgba(255,0,255,0.6)); }
+.beam3 { animation-duration:5s; background: linear-gradient(to bottom, rgba(255,255,0,0.5), rgba(255,0,255,0.5)); }
+@keyframes beamMove { 0% { left:-5%; } 100% { left:105%; } }
+
+/* ---------------- 星パーティクル ---------------- */
+.stars {
+  position: fixed; top:0; left:0; width:100%; height:100%;
+  background: radial-gradient(circle, rgba(255,255,255,0.2) 1px, transparent 1px);
+  background-size: 2px 2px;
+  z-index:0; pointer-events:none;
+}
+
+/* ---------------- ホログラムロゴ ---------------- */
+.holo-logo {
+  position: fixed; top:50%; left:50%; transform:translate(-50%, -50%) rotate(-15deg);
+  font-size:150px; font-weight:bold;
+  color: rgba(0,255,255,0.05);
+  z-index:0; pointer-events:none;
+}
+
+/* ---------------- コンテナ・ヘッダー・カード ---------------- */
+.container, header, footer { position: relative; z-index:1; }
+header { position: sticky; top:0; background: rgba(15,15,30,0.6); backdrop-filter: blur(8px); border-bottom:1px solid rgba(255,255,255,0.1); color:#fff; padding:12px 0; }
+.nav.container { display:flex; justify-content:space-between; align-items:center; max-width:1000px; margin:auto; padding:0 16px; }
+.brand { font-weight:bold; font-size:18px; }
+nav.menu a { color:#f0f0ff; text-decoration:none; margin-left:20px; padding:6px 10px; border-radius:6px; transition:0.3s; }
+nav.menu a:hover { background: rgba(255,62,193,0.2); }
+nav.menu a.active { background: var(--accent); color:#fff; }
+main.container { max-width:1000px; margin:0 auto; padding:40px 16px; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; }
+.card { background: rgba(20,25,40,0.8); border-radius:12px; padding:20px; margin-bottom:16px; box-shadow:0 0 20px rgba(255,62,193,0.5); border:1px solid rgba(255,62,193,0.5); backdrop-filter:blur(8px); transition: transform 0.2s, box-shadow 0.3s; }
+.card:hover { transform:translateY(-6px); box-shadow:0 0 35px rgba(0,240,255,0.7),0 0 30px rgba(255,62,193,0.5); }
+.badge { background: var(--accent); color:#fff; padding:4px 10px; border-radius:999px; font-weight:bold; font-size:0.8rem; box-shadow:0 0 10px var(--accent); margin-bottom:10px; display:inline-block; }
+footer { color: var(--muted); text-align:center; padding:28px 0; }
+
+/* ---------------- 動画カード ---------------- */
+.card video { width:100%; max-width:1000px; height:auto; display:block; margin:0 auto; border-radius:10px; box-shadow:0 0 20px rgba(0,240,255,0.4); }
+.video-wrapper { position:relative; width:100%; padding-top:56.25%; overflow:hidden; border-radius:8px; }
+.video-wrapper video { position:absolute; top:0; left:0; width:100%; height:100%; }
+
+/* ---------------- マウストレイル ---------------- */
+.mouse-trail { position: fixed; top:0; left:0; width:8px; height:8px; background: var(--accent-2); border-radius:50%; pointer-events:none; z-index:2; mix-blend-mode:screen; box-shadow:0 0 12px var(--accent-2); transition: transform 0.05s linear; }

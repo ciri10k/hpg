@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>発表会HTML</title>
+  <link rel="stylesheet" href="stylehome.css">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- HEADER -->
+    <header>
+      <div class="head-left">
+        <a href="index.html"><button>ホーム</button></a>
+      </div>
+
+      <div class="head-right"></div>
+
+      <div class="head-right3dot">
+        <img src="static/japan_flag.png" class="flag" data-country="japan">
+        <img src="static/mongolia_flag.png" class="flag" data-country="mongolia">
+        <img src="static/brazil_flag.png" class="flag" data-country="brazil">
+        <img src="static/nepal_flag.png" class="flag" data-country="nepal">
+        <img src="static/vietnam_flag.png" class="flag" data-country="vietnam">
+        <img src="static/malaysia_flag.png" class="flag" data-country="malaysia">
+        <img src="static/china_flag.png" class="flag" data-country="china">
+      </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="section1">
+      <div class="sec1-vid">
+
+        <video
+          id="bg-video"
+          class="sec1-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+          poster="static/poster/japan.jpg"
+        >
+          <source src="https://github.com/ciri10k/HP_new1/releases/download/bg-video/japan.mp4" type="video/mp4">
+        </video>
+
+        <div class="sec1-info">
+          <h1>デジタル事情</h1>
+          <p>7か国が進めるデジタル社会への取り組みを紹介します</p>
+        </div>
+        <button class="detail-btn">ホームページへ移動</button>
+
+        <h1 class="country-text">JAPAN</h1>
+
+        <img class="qrcode" src="static/home_page_QR_link.png" alt="qrcode">
+      </div>
+    </section>
+
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    const countries = {
+      japan: {
+        name: "JAPAN",
+        video: "https://github.com/ciri10k/HP_new1/releases/download/bg-video/japan.mp4",
+        link: "japan/japan.html"
+      },
+      mongolia: {
+        name: "MONGOLIA",
+        video: "https://github.com/ciri10k/HP_new1/releases/download/bg-video/mongolia.mp4",
+        link: "mongolia/index.html"
+      },
+      brazil: {
+        name: "BRAZIL",
+        video: "https://github.com/ciri10k/HP_new1/releases/download/bg-video/brazil.mp4",
+        link: "brazil/index.html"
+      },
+      nepal: {
+        name: "NEPAL",
+        video: "https://github.com/ciri10k/HP_new1/releases/download/bg-video/nepal.mp4",
+        link: "nepal/index.html"
+      },
+      vietnam: {
+        name: "VIETNAM",
+        video: "https://github.com/ciri10k/HP_new1/releases/download/bg-video/vietnam.mp4",
+        link: "vietnam/vietnam.html"
+      },
+      malaysia: {
+        name: "MALAYSIA",
+        video: "https://github.com/ciri10k/HP_new1/releases/download/bg-video/malaysia.mp4",
+        link: "malaysia/home.html"
+      },
+      china: {
+        name: "CHINA",
+        video: "https://github.com/ciri10k/HP_new1/releases/download/bg-video/china.mp4",
+        link: "china/china_digital.html"
+      }
+    };
+
+    const video = document.getElementById("bg-video");
+    const source = video.querySelector("source");
+    const title = document.querySelector(".country-text");
+    const detailBtn = document.querySelector(".detail-btn");
+    let currentLink = countries.japan.link; // default
+
+    document.querySelector('[data-country="japan"]').classList.add("active");
+
+    document.querySelectorAll(".flag").forEach(flag => {
+      flag.addEventListener("click", () => {
+        const data = countries[flag.dataset.country];
+
+        // REMOVE active from all flags
+        document.querySelectorAll(".flag").forEach(f =>
+          f.classList.remove("active")
+        );
+
+        // ADD active to clicked flag
+        flag.classList.add("active");
+
+        // update text
+        title.textContent = data.name;
+
+        // update button link
+        currentLink = data.link;
+
+        // update video
+        video.pause();
+        source.src = data.video;
+        video.load();
+
+        video.muted = true;
+        video.playsInline = true;
+
+        video.play().catch(() => {
+          document.body.addEventListener("touchstart", () => {
+            video.play();
+          }, { once: true });
+        });
+      });
+    });
+
+    detailBtn.addEventListener("click", () => {
+      window.open(currentLink);
+    });
+
+
+    // ensure autoplay on first load (mobile)
+    document.addEventListener("touchstart", () => {
+      video.play().catch(() => {});
+    }, { once: true });
+
+  </script>
+
+</body>
+</html>

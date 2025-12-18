@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>発表会HTML</title>
+  <link rel="stylesheet" href="style.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+  <div class="container">
+    <header>
+            <div class="head-left">
+                <a href="../index.html"><button>ホーム</button></a>
+            </div>
+            <div class="head-right">
+                <!-- <div class="dropdown">
+                    <a href="#section3">他国</a>
+                    <div class="dropdown-content">
+                        <a href="../brazil/index.html">ブラジル</a>
+                        <a href="#">モンゴル</a>
+                        <a href="../nepal/index.html">ネパール</a>
+                        <a href="..malaysia/index.html">マレーシア</a>
+                        <a href="..china/index.html">中国</a>
+                        <a href="..vietnam/index.html">ベトナム</a>
+                    </div>
+                </div> -->
+                <a href="#comparison">比較</a>
+                <a href="#section4">未来の展望</a>
+            </div>
+            <div class="head-right3dot">
+                <!-- <img src="static/japan flag.png" alt="jp-flag"> -->
+                <img src="static/mongolia flag.png" alt="mgl-flag">
+            </div>
+    </header>
+
+    <section class="section2" id="section2">
+        <div class="autoBlur">
+            <h1>e-Mongoliaとは何</h1>
+        </div>
+        <div class="image-box autoTakeFull">
+            <img src="static/images/emongolia.png" alt="e-Mongoliaの画像">
+        </div>
+        <h4>モンゴル政府が推進するデジタルサービスプラットフォーム</h4>
+        <h5>e-Mongoliaは、行政手続きをオンラインで行えるようにした国民向けデジタルサービスです。<br>
+        パスポート申請、税金の支払い、住民登録などをスマートフォンやPCで簡単に利用できます。</h5>
+        <div class="autoBlur">
+            <h2>使い方</h2>
+        </div>
+        <div class="section2-cards">
+            <div class="card autoDisplay">
+                <video controls poster="static/poster/poster-e-mgl-people.png" loop playsinline preload="metadata">
+                    <source src="https://github.com/ciri10k/home_page/releases/download/mongolia-video/e-Mongolia.people.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="card autoDisplay">
+                <video controls poster="static/poster/poster-e-mgl-girl.png" loop playsinline preload="metadata">
+                    <source src="https://github.com/ciri10k/home_page/releases/download/mongolia-video/e-mongolia.girl.mp4" type="video/mp4"> 
+                </video>
+            </div>
+        </div>
+        <div class="autoBlur" id="section2-qpay">
+            <h1>QPay</h1>
+        </div>
+        <h5>QPayは、モンゴルで広く利用されているキャッシュレス決済サービスです。
+        QRコードを読み取るだけで支払いができ、銀行間の送金もスムーズに行えるため、現金不要の生活を可能にします。</h5>
+        <div class="section2-cards">
+            <div class="card autoDisplay">
+                <video controls poster="static/poster/poster-Qpay.png" loop playsinline preload="metadata">
+                    <source src="https://github.com/ciri10k/home_page/releases/download/mongolia-video/Qpay.sub.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </section>
+
+    <section class="section5" id="comparison">
+        <div class="autoBlur">
+            <h1>モンゴルと日本のデジタル化比較</h1>
+        </div>
+
+        <div class="comparison-grid">
+            <div class="compare-box autoDisplay">
+            <h2>モンゴル（概要）</h2>
+            <p>e-Mongolia を中心に多数の行政サービスがオンライン化され、
+                スマホでの利用を主軸に急速に普及しています。
+                QR 決済（QPay 等）の普及も早く、モバイル主導で生活のデジタル化が進みました。</p>
+            <p class="source">出典：e-Mongolia（公式）、報道（QPay 利用状況）。</p>
+            </div>
+
+            <div class="compare-box autoDisplay">
+            <h2>日本（概要）</h2>
+            <p>マイナンバーカードを中核に行政のデジタル化を進めています。
+                保有率は 70% 台に達していますが、
+                カードの携行率や現場での導入状況には地域差・運用上の課題があります。
+                キャッシュレスは拡大中（2024 年：約 42.8%）。
+            </p>
+            <p class="source">出典：日本 デジタル庁 / 総務省 / 経済産業省（METI）資料。</p>
+            </div>
+        </div>
+
+        <h3 class="compare-title">主要な比較ポイント</h3>
+        <ul class="compare-list autoDisplay">
+        <li><b>インフラ：</b><p>モバイル中心のモンゴル（モバイル加入率が非常に高い） vs 高品質な固定＋モバイル網を持つ日本。</p></li>
+        <li><b>行政サービス：</b><p>モンゴルは短期間で多くをオンライン化。日本は制度的整備を踏まえて段階的に普及。</p></li>
+        <li><b>決済：</b><p>モンゴルはQR決済が生活に深く浸透。日本はクレジットカード主導だが QR も拡大中（2024 年キャッシュレス比率：約 42.8%）。</p></li>
+        <li><b>課題：</b><p>モンゴルは急速展開に伴う規制・セキュリティ対応、地方の端末・リテラシー差。日本は自治体間格差、運用面の課題（マイナンバー、医療機関導入など）。</p></li>
+        </ul>
+
+
+    <div class="reference-box">
+    <button class="ref-toggle">参考文献を表示 ▼</button>
+
+    <div class="ref-content">
+        <p>[1] UNDP Mongolia - Digital Inclusion Report 2024</p>
+        <p>[2] Government of Mongolia - e-Mongolia Usage Statistics 2025</p>
+        <p>[3] 経済産業省「キャッシュレス決済比率（2024年）」</p>
+        <p>[4] 総務省・デジタル庁「デジタル行政・自治体DX資料」</p>
+    </div>
+    </div>
+
+</section>
+
+    <section class="section4" id="section4">
+        <p>次世代のデジタル社会へ</p>
+        <div class="autoBlur">
+            <h1>ともに築く未来のデジタル化</h1>
+        </div>
+        <button>お問い合わせ</button>
+    </section>
+
+            <section class="footer">
+        <p>@Btrsn 2025. All rights reserved</p>
+        <ul>
+            <li><a href="https://www.youtube.com/" target="_blank"><i class='bx bxl-youtube'></i></a></li>
+            <li><a href="https://www.instagram.com/" target="_blank"><i class='bx bxl-instagram' ></i></a></li>
+            <li><a href="https://www.facebook.com/" target="_blank"><i class='bx bxl-facebook' ></i></a></li>
+            <li><a href="https://github.com/" target="_blank"><i class='bx bxl-github'></i></a></li>
+        </ul>
+        <p>Privacy Policy</p>
+    </section>
+  </div>
+
+  <script>
+    const refToggle = document.querySelector(".ref-toggle");
+    const refContent = document.querySelector(".ref-content");
+
+    refToggle.addEventListener("click", () => {
+        const isOpen = refContent.style.display === "block";
+        refContent.style.display = isOpen ? "none" : "block";
+        refToggle.textContent = isOpen ? "参考文献を表示 ▼" : "参考文献を非表示 ▲";
+  });
+</script>
+
+  
+</body>
+</html>

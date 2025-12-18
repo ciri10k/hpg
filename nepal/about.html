@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>日本のテクノロジー | 自己紹介</title>
+  <style>
+    body {
+      font-family: "Poppins", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #dbeafe, #fef9c3);
+      color: #333;
+    }
+
+    header {
+      background-color: #10e437;
+      color: rgb(74, 206, 232);
+      padding: 15px 0;
+      text-align: center;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background: #2eb3df;
+      padding: 10px;
+    }
+
+    nav a {
+      color: rgb(223, 88, 88);
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    /* === あなたの About セクションスタイル === */
+    #about-japan-tech {
+      max-width: 1000px;
+      margin: 30px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #about-japan-tech h2 {
+      text-align: center;
+      color: #004aad;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 10px;
+      transition: transform 0.4s, box-shadow 0.4s;
+      cursor: pointer;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .video-section {
+      text-align: center;
+      margin-top: 40px;
+      width: 95%;
+    }
+
+    footer {
+      background: #1bb735;
+      color: rgb(224, 67, 67);
+      text-align: center;
+      padding: 10px 0;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>日本のテクノロジー紹介 🌸</h1>
+  </header>
+
+  <nav>
+   <nav>
+  <a href="../index.html">ホーム</a>
+  <a href="about.html">日本のテクノロジー</a>
+  <a href="project.html">ネパールのテクノロジー</a>
+  <a href="difference.html">日本とネパール</a>
+  <a href="thankyou.html">ありがとうございます</a>
+</nav>
+
+  </nav>
+
+  <section id="about-japan-tech">
+    <h2>日本のテクノロジーについて</h2>
+    <p>
+      日本は世界でもトップクラスのテクノロジー大国として知られています。
+      ロボット工学、人工知能、電子機器、自動車産業、通信技術など、幅広い分野で発展を続けています。
+      特に「スマートシティ」や「再生可能エネルギー」、「5G通信」は、未来社会を支える重要な柱となっています。
+    </p>
+    <p>
+      日本の企業や研究者たちは、便利さだけでなく、人々の生活の質を高めるための「人にやさしい技術」を目指しています。
+      これにより、世界中で日本の技術が高く評価されています。
+    </p>
+
+    <div class="gallery">
+      <img src="robot.jpg" alt="日本のロボット技術">
+      <img src="071.jpeg" alt="通信ネットワーク">
+      <img src="5GBjapan.jpg" alt="5G技術">
+      <img src="payment.jpg" alt="キャッシュレス決済技術">
+    </div>
+
+    <video class="video-section" controls loop playsinline preload="metadata">
+      <source src="https://github.com/ciri10k/home_page/releases/download/nepal-video/1117.6.mp4" type="video/mp4">
+    </video>
+  </section>
+
+  <footer>
+    <p>© 2025  PAUDEL SANDIPA | 日本のテクノロジー紹介ページ</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>動画やYouTube</title>
+  <link rel="stylesheet" href="css_project/my_page.css">
+  <style>
+    /* 共通アニメーション */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* 動画ラッパー調整 */
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 */
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+      margin: auto;
+    }
+    .video-wrapper video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav container">
+      <div class="brand">マレーシアと日本のデジタル事情</div>
+      <nav class="menu">
+        <a href="../index.html">ホーム</a>
+        <a href="malaysia.html">マレーシア</a>
+        <a href="japan.html">日本</a>
+        <a href="video.html" class="active">動画やYouTube</a>
+        <a href="compare.html">比較まとめ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="youtube" class="fade-in">
+      <h2>マレーシアと日本技術発展や比べ</h2>
+      <p>youtubeの素材からもらった、興味がある方、検索できます。</p>
+
+      <div class="card">
+        <h1>マレーシアAI技術event動画</h1>
+        <div class="video-wrapper">
+          <video controls>
+            <source src="https://github.com/ciri10k/home_page/releases/download/malaysia-video/MTE.2024.Highlight.-.Malaysia.Technology.Expo.720p.h264.youtube.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div>
+          <p>この動画では、毎年のマレーシアのAI技術イベントの様子を紹介しています。</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h1>マレーシアMY digital ID簡単に説明</h1>
+        <div class="video-wrapper">
+          <video controls>
+            <source src="https://github.com/ciri10k/home_page/releases/download/malaysia-video/malaysia_digialID.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div>
+          <p>マレーシアのデジタルID「MY digital ID」の仕組みや利用方法を簡単に説明しています。</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <h1>日本UNIQLO買い物支払方法</h1>
+        <div class="video-wrapper">
+          <video controls>
+            <source src="https://github.com/ciri10k/home_page/releases/download/malaysia-video/how.to.play.uniqlo.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div>
+          <p>日本のUNIQLOでの買い物支払い方法を解説しています。</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> 相模原ビジネス専門学校
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // フェードイン実行
+    const fadeIns = document.querySelectorAll('.fade-in');
+    const showOnScroll = () => {
+      fadeIns.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 50) {
+          el.classList.add('show');
+        }
+      });
+    };
+    window.addEventListener('scroll', showOnScroll);
+    window.addEventListener('load', showOnScroll);
+  </script>
+</body>
+</html>

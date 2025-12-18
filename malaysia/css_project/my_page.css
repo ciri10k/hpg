@@ -1,0 +1,172 @@
+@charset "utf-8";
+
+/* ---- 全体変数 ---- */
+:root {
+  --bg: #0b0f1f;
+  --text: #f0f0ff;
+  --muted: #a9b3d1;
+  --accent: #ff3ec1;   /* ネオンピンク */
+  --accent-2: #00f0ff; /* ネオンブルー */
+  font-family: system-ui, -apple-system, "Segoe UI", "Hiragino Sans", "Noto Sans JP", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+/* ---- 全ページ共通 GIF 背景 ---- */
+body {
+  margin: 0;
+  line-height: 1.6;
+  overflow-x: hidden;
+  color: var(--text);
+  background-image: url('../pixel.gif'); /* CSSから見た相対パス */
+  background-repeat: no-repeat;     /* 繰り返し */
+  background-position: center center;
+  background-size: cover;
+  position: relative;
+}
+
+/* 半透明オーバーレイで文字を見やすく */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(15,15,30,0.3); /* 透明度調整済み */
+  z-index: -1; /* コンテンツの下に配置 */
+}
+
+/* ---- ヒーローセクション ---- */
+.hero {
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, rgba(255,62,193,0.25), rgba(0,240,255,0.25));
+  text-align: center;
+}
+.hero h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  text-shadow: 0 0 20px var(--accent);
+  animation: fadeInDown 1.2s ease;
+}
+.hero p {
+  margin-top: 12px;
+  font-size: 1.2rem;
+  color: var(--muted);
+}
+.btn {
+  margin-top: 20px;
+  padding: 12px 24px;
+  border: 2px solid var(--accent-2);
+  border-radius: 8px;
+  color: var(--accent-2);
+  text-decoration: none;
+  transition: 0.3s;
+}
+.btn:hover {
+  background: var(--accent-2);
+  color: #000;
+  box-shadow: 0 0 20px var(--accent-2);
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---- ヘッダー ---- */
+.container, header, footer { position: relative; z-index: 1; }
+header {
+  position: relative;
+  z-index: 1000;
+  top: 0;
+  background: rgba(15,15,30,0.6);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding: 12px 0;
+}
+.nav.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1000px;
+  margin: auto;
+  padding: 0 16px;
+}
+.brand { 
+  font-weight: bold; 
+  font-size: 18px; 
+  cursor: pointer; 
+}
+nav.menu a {
+  color: #f0f0ff;
+  text-decoration: none;
+  margin-left: 20px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+nav.menu a:hover { 
+  background: rgba(255,62,193,0.2);
+}
+nav.menu a.active { 
+  background: var(--accent); color: #fff; 
+}
+
+/* ---- メイン ---- */
+main.container { max-width: 1000px; margin: 0 auto; padding: 40px 16px; }
+
+/* ---- カード ---- */
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.card {
+  background: rgba(20, 25, 40, 0.8);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(255,62,193,0.5);
+  transition: transform 0.2s, box-shadow 0.3s;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 35px rgba(0,240,255,0.7);
+}
+.badge {
+  background: var(--accent);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+/* ---- グラフバー ---- */
+.stats { margin: 20px 0; }
+.bar {
+  background: rgba(255,255,255,0.1);
+  border-radius: 8px;
+  margin-bottom: 12px;
+  overflow: hidden;
+}
+.bar span {
+  display: block;
+  background: var(--accent);
+  padding: 6px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: bold;
+  animation: grow 2s ease;
+}
+@keyframes grow {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* ---- フッター ---- */
+footer {
+  color: var(--muted);
+  text-align: center;
+  padding: 28px 0;
+  font-size: 0.9rem;
+}

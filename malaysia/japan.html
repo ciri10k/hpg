@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>日本のデジタル事情</title>
+  <link rel="stylesheet" href="css_project/my_page.css">
+
+  <style>
+    /* ===== ページ切り替え用アニメーション ===== */
+    body {
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+      transform: translateY(30px);
+    }
+    body.fade-in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav container">
+      <div class="brand">マレーシアと日本のデジタル事情</div>
+      <nav class="menu">
+        <a href="../index.html">ホーム</a>
+        <a href="malaysia.html">マレーシア</a>
+        <a href="japan.html" class="active">日本</a>
+        <a href="video.html">動画やyoutube</a>
+        <a href="compare.html">比較まとめ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container" >
+    <section id="japan">
+      <h2 class="jp-h">日本のデジタル事情</h2>
+      <p class="subtitle">デジタル庁、マイナンバー、通信品質、企業のDXなど。</p>
+      
+      <div class="grid">
+        <div class="card">
+          <span class="badge">政府・公共</span>
+          <h3>デジタル行政</h3>
+          <p>マイナンバーや行政手続きのオンライン化、オープンデータ活用など。</p>
+          <img src="img_project/a2a8df60b6c4f7faa75579edf2c4fc10_m.jpg" 
+               alt="日本のマイナンバーや行政手続" 
+               style="width:100%;border-radius:8px;margin-top:8px;">
+        </div>
+
+        <div class="card">
+          <span class="badge">通信</span>
+          <h3>インフラ品質</h3>
+          <p>高速回線・5Gの普及率、災害対応のための通信レジリエンスが重要な論点。</p>
+          <img src="img_project/l_tiketani1630690_cisco2011_fig01_w490.jpg" 
+               alt="日本の5Gの普及率" 
+               style="width:100%;border-radius:8px;margin-top:8px;">
+        </div>
+
+        <div class="card">
+          <span class="badge">社会・市場</span>
+          <h3>キャッシュレス・DX</h3>
+          <p>IC/QR決済の混在、企業の業務デジタル化、地方のデジタルデバイド対策。</p>
+          <img src="img_project/AdobeStock_208737055.jpg" 
+               alt="日本のキャッシュレスとDX" 
+               style="width:100%;border-radius:8px;margin-top:8px;">
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> 相模原ビジネス専門学校
+  </footer>
+
+  <script>
+    // 年を自動更新
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ページ読み込み時にフェードイン
+    document.addEventListener("DOMContentLoaded", () => {
+      document.body.classList.add("fade-in");
+    });
+
+    // ナビゲーションのリンクにクリックイベント追加
+    document.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", function(e) {
+        const href = this.getAttribute("href");
+
+        // HTMLページだけ対象（外部リンクは無視）
+        if (href && href.endsWith(".html")) {
+          e.preventDefault();
+          document.body.classList.remove("fade-in"); // フェードアウト開始
+          document.body.style.opacity = 0;
+
+          // 0.6秒後に遷移
+          setTimeout(() => {
+            window.location.href = href;
+          }, 600);
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+  <!DOCTYPE html>
+  <html lang="ja">
+  <head>
+  <meta charset="UTF-8">
+  <title>VNeIDとベトナムのデジタル化</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+  body {
+    margin: 0;
+    font-family: "Noto Sans JP", sans-serif;
+    background: #f0f4f8;
+    color: #0f172a;
+  }
+
+  header {
+    background: linear-gradient(rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('hcm.jpg') center/cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 90px 16px;
+  }
+
+  header h1 {
+    font-size: 2.8em;
+    margin-bottom: 10px;
+  }
+
+header p {
+  font-size: 1.25em;
+  margin: 0;
+}
+
+  section {
+    max-width: 900px;
+    margin: 40px auto;
+    background: white;
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+  }
+
+  section:hover {
+    transform: translateY(-5px);
+  }
+
+  h2 {
+    color: #005BAC;
+    display: flex;
+    align-items: center;
+    font-size: 1.8em;
+  }
+
+  h2 i {
+    color: #1E90FF;
+    margin-right: 12px;
+  }
+
+.point {
+  background: #e8f2ff;
+  padding: 18px;
+  border-left: 6px solid #1E90FF;
+  margin: 20px 0;
+  line-height: 1.7;
+  border-radius: 8px;
+  font-weight: 500;
+}
+
+ul {
+  padding-left: 25px;
+  line-height: 1.7;
+}
+
+ul li {
+  margin-bottom: 10px;
+}
+
+section p { font-size: 1.2em; line-height: 1.85; }
+ul { font-size: 1.1em; }
+.point { font-size: 1.15em; }
+footer { font-size: 1.05em; }
+
+  img {
+    width: 100%;
+    border-radius: 12px;
+    margin-top: 20px;
+    border: 2px solid #e0e7ff;
+  }
+
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .gallery img { width: 100%; height: 180px; object-fit: cover; border-radius: 12px; border: 2px solid #e0e7ff; }
+  .hero-cta { margin-top: 14px; display: inline-flex; gap: 10px; }
+  .btn { display: inline-block; padding: 10px 14px; border-radius: 10px; color: #fff; text-decoration: none; background: linear-gradient(90deg,#005BAC,#1E90FF); box-shadow: 0 6px 20px rgba(0,0,0,0.18); }
+  .btn:hover { filter: brightness(1.05); }
+
+  @media (max-width: 768px) {
+    header { padding: 64px 12px; }
+    header h1 { font-size: 2.2em; }
+    .gallery { grid-template-columns: 1fr 1fr; }
+  }
+
+  footer {
+    text-align: center;
+    color: #64748b;
+    padding: 25px;
+    background: #f0f4f8;
+  }
+
+  footer a {
+    color: #1E90FF;
+    text-decoration: none;
+    margin: 0 8px;
+    font-weight: 500;
+  }
+
+  footer a:hover {
+    text-decoration: underline;
+  }
+
+  /* Icon checkmark style */
+  .check {
+    color: #1E90FF;
+    margin-right: 8px;
+    font-weight: bold;
+  }
+  </style>
+  </head>
+  <body>
+
+  <header>
+    <h1>ベトナムのデジタルトランスフォーメーション</h1>
+    <p>国家電子身分証アプリ「VNeID」</p>
+    <div class="hero-cta">
+      <a href="../index.html" class="btn"><i class="fa-solid fa-id-card"></i>&nbsp;ホーム</a>
+      <a href="#vneid" class="btn"><i class="fa-solid fa-id-card"></i>&nbsp;VNeIDとは</a>
+      <a href="#gallery" class="btn"><i class="fa-solid fa-images"></i>&nbsp;写真</a>
+    </div>
+  </header>
+
+  <section>
+  <h2><i class="fas fa-lightbulb"></i>① はじめに</h2>
+  <p>
+  皆さん、こんにちは。<br>
+  本日は、ベトナムにおける<strong>デジタルトランスフォーメーション</strong>と、
+  国家電子身分証アプリ<strong>「VNeID」</strong>についてご紹介します。
+  </p>
+  </section>
+
+  <section>
+  <h2><i class="fas fa-rocket"></i>② デジタルトランスフォーメーションとは</h2>
+  <div class="point">
+  <strong>デジタル技術を活用して、社会や行政をより便利で効率的にする取り組み</strong>です。
+  </div>
+  <ul>
+  <li><i class="check fas fa-check-circle"></i>行政手続きのオンライン化</li>
+  <li><i class="check fas fa-check-circle"></i>国民データのデジタル管理</li>
+  <li><i class="check fas fa-check-circle"></i>紙の書類の削減と業務効率化</li>
+  </ul>
+  </section>
+
+  <section id="vneid">
+  <h2><i class="fas fa-id-card"></i>③ VNeIDとは</h2>
+  <p>
+  <strong>VNeID</strong>はベトナム公安省が開発した<strong>国家電子身分証アプリ</strong>です。
+  </p>
+  <div class="point">
+  スマートフォン1台で以下が可能です：<br>
+  <i class="check fas fa-check-circle"></i>本人確認<br>
+  <i class="check fas fa-check-circle"></i>行政サービスの利用<br>
+  <i class="check fas fa-check-circle"></i>身分証明書の代替
+  </div>
+  <img src="vneidapp.jpg" alt="VNeID ロゴ">
+  </section>
+
+  <section id="gallery">
+  <h2><i class="fas fa-images"></i>⑤ フォトギャラリー</h2>
+  <div class="gallery">
+    <img src="Vietnam_becoming_digital_powerhouse-VNM.png" alt="Vietnam Digital Powerhouse">
+    <img src="digital_vietnam_-_blog_-297.png" alt="Digital Vietnam">
+    <img src="tphcm1-17037263479231077812209.jpg" alt="Ho Chi Minh City">
+    <img src="muc1.jpg" alt="Vietnam Scene">
+    <img src="muc2.webp" alt="Vietnam Scene 2">
+    <img src="momo-upload-api-220713085809-637932994891643326.jpg" alt="Vietnam Tech">
+  </div>
+  </section>
+  <section>
+  <h2><i class="fas fa-thumbs-up"></i>④ メリットとまとめ</h2>
+  <ul>
+  <li><i class="check fas fa-check-circle"></i>手続きが迅速で簡単になる</li>
+  <li><i class="check fas fa-check-circle"></i>紙の書類が不要になる</li>
+  <li><i class="check fas fa-check-circle"></i>デジタル政府の実現を後押しする</li>
+  </ul>
+  <div class="point">
+  <strong>VNeIDは、ベトナムのデジタル社会を支える重要な基盤システムです。</strong>
+  </div>
+  </section>
+
+  <footer>
+  <p>&copy; 2025 Digital Vietnam Explorer</p>
+  <p>
+    <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook"></i> Facebook</a> |
+    <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i> Instagram</a> |
+    <a href="mailto:info@digitalvietnam.jp"><i class="fas fa-envelope"></i> お問い合わせ</a>
+  </p>
+  </footer>
+
+  </body>
+  </html>

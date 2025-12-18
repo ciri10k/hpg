@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>比較まとめ</title>
+  <link rel="stylesheet" href="css_project/my_page.css">
+  <style>
+    /* 共通アニメーション */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav container">
+      <div class="brand">マレーシアと日本のデジタル事情</div>
+      <nav class="menu">
+        <a href="../index.html">ホーム</a>
+        <a href="malaysia.html">マレーシア</a>
+        <a href="japan.html">日本</a>
+        <a href="video.html">動画やyoutube</a>
+        <a href="compare.html" class="active">比較まとめ</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section id="compare" class="fade-in">
+      <h2 class="cmp-h">比較まとめ</h2>
+      <p class="subtitle">以下はサンプルの指標表。授業用に数値を入れてください。</p>
+      
+      <div class="card fade-in">
+  <h3>主要指標</h3>
+  <table style="width:100%; table-layout:fixed; border-collapse: collapse;">
+    <thead>
+      <tr style="background-color: rgba(255,62,193,0.2);">
+        <th style="padding:8px;">項目</th>
+        <th style="padding:8px;">マレーシア（例）</th>
+        <th style="padding:8px;">日本（例）</th>
+        <th style="padding:8px;">メモ</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style="background-color: rgba(0,240,255,0.05);">
+        <td style="padding:6px;">インターネット普及率</td>
+        <td style="padding:6px;">約90%</td>
+        <td style="padding:6px;">約95%</td>
+        <td style="padding:6px; word-break: break-word;">出典・年を明記</td>
+      </tr>
+      <tr>
+        <td style="padding:6px;">5G人口カバー</td>
+        <td style="padding:6px;">都市部中心</td>
+        <td style="padding:6px;">全国都市圏中心</td>
+        <td style="padding:6px; word-break: break-word;">都市/地方の差を注記</td>
+      </tr>
+      <tr style="background-color: rgba(0,240,255,0.05);">
+        <td style="padding:6px;">キャッシュレス比率</td>
+        <td style="padding:6px;">QR中心に急成長</td>
+        <td style="padding:6px;">IC＋QRの混在</td>
+        <td style="padding:6px; word-break: break-word;">利用者習慣の違い</td>
+      </tr>
+      <tr>
+        <td style="padding:6px;">電子政府成熟度</td>
+        <td style="padding:6px;">上昇中</td>
+        <td style="padding:6px;">高水準だが改善余地あり</td>
+        <td style="padding:6px; word-break: break-word;">国際指標参照を推奨</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+      <div class="grid" style="margin-top:14px">
+        <div class="card fade-in">
+          <span class="badge">強み</span>
+          <h3>マレーシア</h3>
+          <ul>
+            <li>多言語市場と英語対応サービス</li>
+            <li>フィンテック・モバイル決済の成長</li>
+            <li>若い労働力とスタートアップ支援</li>
+          </ul>
+        </div>  
+        <div class="card fade-in">
+          <span class="badge">強み</span>
+          <h3>日本</h3>
+          <ul>
+            <li>高品質な通信インフラ</li>
+            <li>産業基盤と公共分野の信頼性</li>
+            <li>セキュリティと法整備の進展</li>
+          </ul>
+        </div>
+        <div class="card fade-in">
+          <span class="badge">課題</span>
+          <h3>共通の課題</h3>
+          <ul>
+            <li>地方と高齢者のデジタルデバイド</li>
+            <li>人材不足（データ・開発）</li>
+            <li>サイバーセキュリティの強化</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card fade-in" style="margin-top:12px">
+        <h3>まとめ</h3>
+        <p>ここに自分の意見・提案を書いてください。例：「キャッシュレス教育プログラム」「行政UXの改善案」「国際連携によるセキュリティ基準」など。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> 相模原ビジネス専門学校
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // フェードインをスクロール時に実行
+    const fadeIns = document.querySelectorAll('.fade-in');
+    const showOnScroll = () => {
+      fadeIns.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 50) {
+          el.classList.add('show');
+        }
+      });
+    };
+    window.addEventListener('scroll', showOnScroll);
+    window.addEventListener('load', showOnScroll);
+  </script>
+</body>
+</html>

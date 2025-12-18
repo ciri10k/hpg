@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>中国のデジタル化</title>
+<style>
+
+* {
+  max-width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", "Helvetica Neue", sans-serif;
+  color: #333;
+  background: #f5f5f5;
+}
+
+/* === 导航栏 === */
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 85px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 50px;
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-sizing: border-box;
+}
+
+.nav-left {
+  font-size: 24px;
+  font-weight: 600;
+  color: #2c3e50;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* 飘动的国旗 */
+.china-flag {
+  width: 42px;
+  height: 28px;
+  animation: flagWave 3s ease-in-out infinite;
+  transform-origin: left center;
+}
+
+@keyframes flagWave {
+  0% { transform: rotate(0deg) skewY(0deg); }
+  25% { transform: rotate(1deg) skewY(2deg); }
+  50% { transform: rotate(0deg) skewY(0deg); }
+  75% { transform: rotate(-1deg) skewY(-2deg); }
+  100% { transform: rotate(0deg) skewY(0deg); }
+}
+
+.nav-center ul {
+  display: flex;
+  list-style: none;
+  gap: 35px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-center > ul > li {
+  position: relative;
+}
+
+.nav-center > ul > li > a {
+  color: #ff9800;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 10px 0;
+  transition: color 0.3s;
+  display: block;
+}
+
+.nav-center > ul > li > a:hover {
+  color: #5a9fd4;
+}
+
+/* 竖向下拉菜单 - 只给実例用 */
+li.dropdown > .dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  display: none;
+  list-style: none;
+  padding: 8px 0;
+  margin: 10px 0 0 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.12);
+  min-width: 180px;
+  z-index: 100;
+}
+
+li.dropdown > .dropdown-menu li {
+  display: block;
+  width: 100%;
+}
+
+li.dropdown > .dropdown-menu li a {
+  display: block;
+  padding: 12px 24px;
+  white-space: nowrap;
+  transition: all 0.3s;
+  color: #555;
+  text-decoration: none;
+}
+
+li.dropdown > .dropdown-menu li a:hover {
+  background: #f0f7fc;
+  color: #5a9fd4;
+}
+
+/* 只有带dropdown类的li才显示下拉菜单 */
+li.dropdown:hover > .dropdown-menu {
+  display: block;
+}
+
+.nav-right {
+  color: #555;
+  font-size: 22px;
+}
+
+/* === 区块分隔 === */
+.section-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(0,0,0,0.1), transparent);
+  margin: 0;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 36px;
+  padding: 50px 0 30px;
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #2c3e50;
+}
+
+/* === Banner === */
+.banner {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 85px;
+}
+
+.banner-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 1080px;
+  text-align: center;
+  text-shadow: 1px 1px 8px rgba(0,0,0,0.3);
+  color: white;
+}
+
+.banner-content h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.banner-content p {
+  font-size: 18px;
+  margin-bottom: 35px;
+  line-height: 1.7;
+}
+
+.banner-content button {
+  padding: 14px 45px;
+  border: none;
+  background: #5a9fd4;
+  color: white;
+  font-size: 17px;
+  cursor: pointer;
+  border-radius: 25px;
+  font-weight: 500;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(90, 159, 212, 0.3);
+}
+
+.banner-content button:hover {
+  background: #4a8fc4;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(90, 159, 212, 0.4);
+}
+
+/* === インフラ区块 === */
+.infra-section {
+  background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  padding: 70px 0;
+  border-top: 3px solid #e3f2fd;
+}
+
+.section-title.infra-title {
+  color: #ff9800;
+}
+
+/* === 基建网格 === */
+.infra {
+  padding: 0 0 50px 0;
+}
+
+.infra-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  padding: 0 40px;
+}
+
+.infra-item {
+  background: white;
+  border: 1px solid #e8e8e8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border-radius: 10px;
+  transition: all 0.3s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.infra-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  border-color: #5a9fd4;
+}
+
+.infra-item img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border-radius: 6px;
+}
+
+.infra-item p {
+  font-size: 14px;
+  line-height: 1.6;
+  text-align: center;
+  color: #555;
+}
+
+/* === 指标 === */
+.stats {
+  padding: 50px 0;
+  background: rgba(90, 159, 212, 0.05);
+}
+
+.stats-box {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 0 40px;
+}
+
+.stat-item {
+  text-align: center;
+  width: 30%;
+}
+
+.stat-icon {
+  width: 140px;
+  height: 140px;
+  background-size: cover;
+  background-position: center;
+  margin: 0 auto 40px;
+  border-radius: 50%;
+  border: 3px solid #ffa726;
+  box-shadow: 0 4px 15px rgba(90, 159, 212, 0.2);
+  transition: all 0.3s;
+}
+
+.stat-item:hover .stat-icon {
+  transform: scale(1.08);
+  box-shadow: 0 6px 20px rgba(90, 159, 212, 0.3);
+}
+
+.stat-item h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+  color: #ffa726;
+  font-weight: 600;
+}
+
+.stat-item p {
+  font-size: 16px;
+  color: #666;
+}
+
+/* === 実例区块 === */
+.examples-section {
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+  padding: 70px 0;
+  border-top: 3px solid #fff3e0;
+}
+
+.section-title.examples-title {
+  color: #ff9800;
+}
+
+/* === 案例视频部分 === */
+.case-section {
+  max-width: 1400px;
+  margin: 0 auto 60px;
+  display: flex;
+  align-items: center;
+  background: white;
+  gap: 40px;
+  padding: 40px;
+  border-radius: 12px;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.case-section:hover {
+  box-shadow: 0 6px 25px rgba(0,0,0,0.1);
+}
+
+/* 统一视频容器 - 16:9比例 */
+.case-video {
+  flex: 1;
+  position: relative;
+  background: #000000;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  cursor: pointer;
+}
+
+.case-video::before {
+  content: '';
+  display: block;
+  padding-top: 56.25%; /* 16:9 比例 */
+}
+
+.case-video video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* 视频缩略图 */
+.video-thumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+}
+
+.video-thumbnail::after {
+  content: '▶';
+  font-size: 80px;
+  color: white;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.8);
+  transition: all 0.3s;
+}
+
+.case-video:hover .video-thumbnail::after {
+  transform: scale(1.2);
+}
+
+.case-text {
+  flex: 1;
+  padding: 30px;
+}
+
+.case-text h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #ff9800;
+  font-weight: 600;
+}
+
+.case-text p {
+  font-size: 16px;
+  line-height: 1.8;
+  color: #666;
+}
+
+.case-section.reverse {
+  flex-direction: row-reverse;
+}
+
+/* === AI応用区块 === */
+.ai {
+  padding: 50px 0 0;
+}
+
+.ai-section-title {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #ff9800;
+  font-weight: 600;
+}
+
+.ai-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 0 40px;
+}
+
+.ai-img {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid #f0f0f0;
+  transition: all 0.3s;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.ai-img:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  border-color: #ff9800;
+}
+
+.ai-img img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+/* === News区块 === */
+.news-section {
+  background: linear-gradient(180deg, #ffffff 0%, #fffaf0 100%);
+  padding: 70px 0;
+  border-top: 3px solid #fff9e6;
+}
+
+.section-title.news-title {
+  color: #ffa726;
+}
+
+.news {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  gap: 40px;
+  padding: 0 40px;
+}
+
+.news-left,
+.news-right {
+  width: 50%;
+}
+
+.news-video {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #f0f0f0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  background: white;
+  position: relative;
+  cursor: pointer;
+}
+
+.news-video video {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+}
+
+/* 新闻视频缩略图 */
+.news-video .video-thumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 400px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+}
+
+.news-video .video-thumbnail::after {
+  content: '▶';
+  font-size: 80px;
+  color: white;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.8);
+  transition: all 0.3s;
+}
+
+.news-video:hover .video-thumbnail::after {
+  transform: scale(1.2);
+}
+
+.news-video-desc {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 17px;
+  color: #ff9800;
+  font-weight: 500;
+}
+
+.news-video-desc h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #ff9800;
+}
+
+.news-right {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.news-card {
+  background: white;
+  padding: 28px;
+  border-left: 4px solid #ffa726;
+  border-radius: 6px;
+  transition: all 0.3s;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.news-card:hover {
+  transform: translateX(8px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.news-card h4 {
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: #ff9800;
+  font-weight: 600;
+}
+
+.news-card p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #666;
+}
+
+/* === 収尾Banner === */
+.banner-section {
+  border-top: 3px solid #e8f5e9;
+}
+
+.end-banner {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+
+.end-banner video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.end-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 1200px;
+  text-align: center;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  color: #fff;
+  text-shadow: 2px 2px 15px rgba(0,0,0,0.7);
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+
+/* === Footer === */
+.footer {
+  text-align: center;
+  padding: 40px;
+  background: #fafafa;
+  font-size: 14px;
+  border-top: 1px solid #e8e8e8;
+  color: #888;
+}
+
+/* === 视频弹窗 === */
+.video-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-modal.active {
+  display: flex;
+}
+
+.video-modal-content {
+  position: relative;
+  max-width: 90%;
+  max-height: 90%;
+  width: 1200px;
+}
+
+.video-modal video {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 50px rgba(0,0,0,0.5);
+}
+
+.video-modal-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  font-size: 36px;
+  color: white;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  line-height: 1;
+  transition: all 0.3s;
+}
+
+.video-modal-close:hover {
+  color: #ff9800;
+  transform: scale(1.2);
+}
+
+/* === 平滑滚动 === */
+html, body {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* === 响应式 === */
+
+@media screen and (max-width: 768px) {
+  .infra-grid,
+  .ai-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .nav {
+    padding: 0 16px;
+  }
+  
+  .nav-center ul {
+    gap: 20px;
+    font-size: 14px;
+  }
+  
+  li.dropdown > .dropdown-menu {
+    min-width: 150px;
+  }
+  
+  li.dropdown > .dropdown-menu li a {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  
+  .banner-content h1 {
+    font-size: 36px;
+  }
+  
+  .section-title {
+    font-size: 28px;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- 1. ナビゲーション -->
+<header class="nav">
+  <div class="nav-left">
+    <svg class="china-flag" viewBox="0 0 30 20" xmlns="http://www.w3.org/2000/svg">
+      <rect width="30" height="20" fill="#DE2910"/>
+      <polygon points="5,3 5.95,5.9 9,5.9 6.55,7.65 7.5,10.5 5,8.75 2.5,10.5 3.45,7.65 1,5.9 4.05,5.9" fill="#FFDE00"/>
+      <polygon points="10,1 10.3,1.8 11.1,1.5 10.8,2.3 11.5,2.7 10.7,2.7 10.5,3.5 10.2,2.7 9.4,2.8 10,2.3" fill="#FFDE00"/>
+      <polygon points="12,3 12.3,3.8 13.1,3.5 12.8,4.3 13.5,4.7 12.7,4.7 12.5,5.5 12.2,4.7 11.4,4.8 12,4.3" fill="#FFDE00"/>
+      <polygon points="12,6 12.3,6.8 13.1,6.5 12.8,7.3 13.5,7.7 12.7,7.7 12.5,8.5 12.2,7.7 11.4,7.8 12,7.3" fill="#FFDE00"/>
+      <polygon points="10,8 10.3,8.8 11.1,8.5 10.8,9.3 11.5,9.7 10.7,9.7 10.5,10.5 10.2,9.7 9.4,9.8 10,9.3" fill="#FFDE00"/>
+    </svg>
+    中国のデジタル化
+  </div>
+  <nav class="nav-center">
+    <ul>
+      <li><a href="../index.html">ホーム</a></li>
+      <li><a href="#infra">インフラ</a></li>
+      <li class="dropdown">
+        <a href="#examples">実例</a>
+        <ul class="dropdown-menu">
+          <li><a href="#smart-payment">スマート決済</a></li>
+          <li><a href="#smart-home">スマート家電</a></li>
+          <li><a href="#smart-hospital">スマート病院</a></li>
+          <li><a href="#ai-application">AI応用</a></li>
+        </ul>
+      </li>
+      <li><a href="#news">新聞</a></li>
+    </ul>
+  </nav>
+  <div class="nav-right">検索</div>
+</header>
+
+<!-- 2. 第1屏 Banner -->
+<section class="banner" id="home">
+  <video class="banner-video" playsinline autoplay loop muted>
+    <source src="https://github.com/ciri10k/home_page/releases/download/china-video/home_pagevedio.mp4" type="video/mp4">
+  </video>
+  <div class="banner-content">
+    <h1>未来を駆動し、生活を再構築する</h1>
+    <p>インフラから民生サービス、産業の高度化からガバナンスの革新まで、中国のデジタル化発展の壮大な歩みと成果を全方位から探る</p>
+    <button onclick="document.getElementById('examples').scrollIntoView({behavior: 'smooth'})">実例を探す</button>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ==================== インフラ区块 ==================== -->
+<div class="infra-section" id="infra">
+  <h2 class="section-title infra-title">インフラストラクチャ</h2>
+  
+  <!-- 3. 第2屏：インフラ -->
+  <section class="infra">
+    <div class="infra-grid">
+      <div class="infra-item">
+        <img src="static/FAST.jpg" alt="FAST">
+        <p style="color:#ff9800;font-weight:600;">貴州"天眼" (FAST)</p>
+        <p>宇宙天体の観測を行い、通信能力の向上に寄与している。</p>
+      </div>
+      <div class="infra-item">
+        <img src="static/BeiDou.jpg" alt="BeiDou">
+        <p style="color:#ff9800;font-weight:600;">北斗衛星導航システム(BeiDou)</p>
+        <p>高精度の測位・ナビゲーション・時刻配信サービスを提供する重要な役割を果たしている</p>
+      </div>
+      <div class="infra-item">
+        <img src="static/1000v特高電圧.jpg" alt="特高電圧">
+        <p style="color:#ff9800;font-weight:600;">1000v特高電圧</p>
+        <p>長距離・大容量の電力輸送を可能にし、送電効率の向上とエネルギー損失の削減に大きく寄与している</p>
+      </div>
+      <div class="infra-item">
+        <img src="static/5G.jpg" alt="光ファイバー">
+        <p style="color:#ff9800;font-weight:600;">光ファイバー</p>
+        <p>高速かつ大容量のデータ伝送を実現する通信媒体。インターネット・5G・データセンターを支える。</p>
+      </div>
+      <div class="infra-item">
+        <img src="static/データセンター.jpg" alt="データセンター">
+        <p style="color:#ff9800;font-weight:600;">データセンター</p>
+        <p>大量のデータを安全かつ安定的に保存・処理する施設。</p>
+      </div>
+      <div class="infra-item">
+        <img src="static/算力センター.jpg" alt="算力センター">
+        <p style="color:#ff9800;font-weight:600;">算力センター</p>
+        <p>AI処理やHPCを行う大規模計算資源を提供。</p>
+      </div>
+      <div class="infra-item">
+        <img src="static/Sina City Brain.jpg" alt="Sina City Brain">
+        <p style="color:#ff9800;font-weight:600;">新浪シティブレイン</p>
+        <p>都市の交通・公共サービスを統合的に管理するプラットフォーム。</p>
+      </div>
+      <div class="infra-item">
+        <img src="static/区块チェーン.jpg" alt="区块チェーン研究院">
+        <p style="color:#ff9800;font-weight:600;">区块チェーン研究院</p>
+        <p>ブロックチェーン技術を研究し応用する専門機関。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. 第3屏：指标 -->
+  <section class="stats">
+    <div class="stats-box">
+      <div class="stat-item">
+        <div class="stat-icon" style="background-image:url('static/通信.png');"></div>
+        <h3>ネットワーク基盤</h3>
+        <p>464.6万 5G基站</p>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon" style="background-image:url('static/算力.png');"></div>
+        <h3>算力インフラ</h3>
+        <p>算力規模：世界の第2名</p>
+      </div>
+      <div class="stat-item">
+        <div class="stat-icon" style="background-image:url('static/data.png');"></div>
+        <h3>データ基盤</h3>
+        <p>18都市でデータ連携</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ==================== 実例区块 ==================== -->
+<div class="examples-section" id="examples">
+  <h2 class="section-title examples-title">実例紹介</h2>
+
+  <!-- 5. 第4屏：スマート決済 -->
+  <section class="case-section" id="smart-payment">
+    <div class="case-video" onclick="openVideoModal('https://github.com/ciri10k/home_page/releases/download/china-video/smartphone.mp4')">
+      <div class="video-thumbnail"></div>
+      <video autoplay loop muted playsinline>
+        <source src="https://github.com/ciri10k/home_page/releases/download/china-video/smartphone.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="case-text">
+      <h2>スマートフォン決済</h2>
+      <p>中国のモバイル決済普及率は世界トップレベル。AlipayやWeChat Payを中心に、日常生活のあらゆる場面でキャッシュレス決済が実現されています。</p>
+    </div>
+  </section>
+
+  <!-- 6. 第5屏：スマート家電 -->
+  <section class="case-section reverse" id="smart-home">
+    <div class="case-text">
+      <h2>スマート家電</h2>
+      <p>家庭のIoT化が急速に進み、音声アシスタントやスマートフォンで家電を統合管理。エネルギー効率の向上と快適な生活空間を実現しています。</p>
+    </div>
+    <div class="case-video" onclick="openVideoModal('https://github.com/ciri10k/home_page/releases/download/china-video/smarthome.mp4')">
+      <div class="video-thumbnail"></div>
+      <video autoplay loop muted playsinline>
+        <source src="https://github.com/ciri10k/home_page/releases/download/china-video/smarthome.mp4" type="video/mp4">
+      </video>
+    </div>
+  </section>
+
+  <!-- 7. 第6屏：スマート病院 -->
+  <section class="case-section" id="smart-hospital">
+    <div class="case-video" onclick="openVideoModal('https://github.com/ciri10k/home_page/releases/download/china-video/smarthospital.mp4')">
+      <div class="video-thumbnail"></div>
+      <video autoplay loop muted playsinline>
+        <source src="https://github.com/ciri10k/home_page/releases/download/china-video/smarthospital.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="case-text">
+      <h2>スマート病院</h2>
+      <p>遠隔診療・電子カルテの統合が進み、AIによる診断支援システムも導入。医療の効率化と質の向上を同時に実現しています。</p>
+    </div>
+  </section>
+
+  <!-- 8. 第7屏：AI応用 -->
+  <section class="ai" id="ai-application">
+    <h2 class="ai-section-title">AI応用</h2>
+    <div class="ai-grid">
+      <div class="ai-img"><img src="static/無人機.jpg" alt="无人机"></div>
+      <div class="ai-img"><img src="static/机器人.jpg" alt="人形机器人"></div>
+      <div class="ai-img"><img src="static/汽车.jpg" alt="无人汽车"></div>
+      <div class="ai-img"><img src="static/ai视频生成电影.jpg" alt="AI视频生成電影"></div>
+      <div class="ai-img"><img src="static/自动化港口.jpg" alt="自动化港口"></div>
+      <div class="ai-img"><img src="static/ai农业.JPG" alt="AI農業"></div>
+      <div class="ai-img"><img src="static/机械臂检修电网.jpg" alt="機械臂検修電網"></div>
+      <div class="ai-img"><img src="static/工場.jpg" alt="AI工場"></div>
+      <div class="ai-img"><img src="static/遠距離手術.jpg" alt="遠隔手術"></div>
+    </div>
+  </section>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ==================== News区块 ==================== -->
+<div class="news-section" id="news">
+  <h2 class="section-title news-title">最新ニュース</h2>
+  
+  <!-- 9. 第8屏：新闻 -->
+  <section class="news">
+    <div class="news-left">
+      <div class="news-video" onclick="openVideoModal('https://github.com/ciri10k/home_page/releases/download/china-video/AI2027.mp4')">
+        <div class="video-thumbnail" style="background-image: url('static/AI2027封面.jpg');"></div>
+        <video autoplay loop muted playsinline>
+          <source src="https://github.com/ciri10k/home_page/releases/download/china-video/AI2027.mp4" type="video/mp4">
+        </video>
+      </div>
+      <p class="news-video-desc">
+        <h3>Ai2027</h3>
+        わたしたちはまだスーパーインテリジェンスを迎える準備が出来ていない
+      </p>
+    </div>
+    <div class="news-right">
+      <div class="news-card">
+        <h4>XPeng 次世代ヒューマノイドロボット「IRON」</h4>
+        <p>中国のEVメーカー、小鵬汽車（XPeng）は2025年のAI Dayにおいて、第2世代ヒューマノイドロボット「IRON（アイロン）」を発表しました。</p>
+      </div>
+      <div class="news-card">
+        <h4>汎用人工知能（AGI）イベント「AGIC深セン」、約12万人が来場</h4>
+        <p>2025年8月、中国・深センにて「2025 AGIC（国際汎用人工知能大会）」が開催されました。この大会には約12万人が来場し、1,001社が出展。汎用AI（AGI）の実用化や応用をテーマに多くの企業がフォーラムや展示を行い、AGIへの関心の高さを示しました。</p>
+      </div>
+      <div class="news-card">
+        <h4>2025世界AI大会、世界人工知能協力組織の設立提案</h4>
+        <p>2025年7月に上海で開催された世界人工知能大会（WAIC）において、中国の李強首相が「グローバルAI協力機構」の設立を提案。AIの規制や開発を国際的に調整し、技術の安全性と普遍的な利用を促進する枠組み作りを目指す。</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="section-divider"></div>
+
+<!-- ==================== Banner区块 ==================== -->
+<div class="banner-section">
+  <!-- 10. 第9屏：収尾Banner -->
+  <section class="end-banner">
+    <video autoplay loop muted playsinline>
+      <source src="https://github.com/ciri10k/home_page/releases/download/china-video/2024.mp4" type="video/mp4">
+    </video>
+    <div class="end-text">過去の一年世界科技の発展</div>
+  </section>
+</div>
+
+<!-- 11. 页脚 -->
+<footer class="footer">
+  <p>本サイトの内容は参考情報であり、正確性を保証するものではありません。</p>
+</footer>
+
+<!-- 视频弹窗 -->
+<div class="video-modal" id="videoModal" onclick="closeVideoModal(event)">
+  <div class="video-modal-content">
+    <button class="video-modal-close" onclick="closeVideoModal(event)">✕</button>
+    <video id="modalVideo" controls>
+      <source src="" type="video/mp4">
+    </video>
+  </div>
+</div>
+
+<script>
+function openVideoModal(videoSrc) {
+  const modal = document.getElementById('videoModal');
+  const video = document.getElementById('modalVideo');
+  video.src = videoSrc;
+  modal.classList.add('active');
+  video.play();
+}
+
+function closeVideoModal(event) {
+  if (event.target.classList.contains('video-modal') || 
+      event.target.classList.contains('video-modal-close')) {
+    const modal = document.getElementById('videoModal');
+    const video = document.getElementById('modalVideo');
+    video.pause();
+    video.currentTime = 0;
+    modal.classList.remove('active');
+    event.stopPropagation();
+  }
+}
+
+// ESC键关闭弹窗
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    const modal = document.getElementById('videoModal');
+    if (modal.classList.contains('active')) {
+      closeVideoModal({ target: modal });
+    }
+  }
+});
+</script>
+
+</body>
+</html>

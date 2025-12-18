@@ -1,0 +1,415 @@
+/* ===== 背景動画 ===== */
+#bg-video {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; 
+    height: 100vh; 
+    object-fit: cover;
+    filter: brightness(60%) contrast(110%);
+    z-index: -1;
+}
+
+/* ===== 全体 ===== */
+body {
+    margin: 0;
+    font-family: 'Helvetica Neue', 'Noto Sans JP', sans-serif;
+    color: #e0e0e0;
+    background-color: #111;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* ===== ナビゲーションの位置決め（ハンバーガーボタン用） ===== */
+nav {
+    position: fixed;
+    top: 25px; 
+    right: 25px; 
+    z-index: 2000; 
+}
+
+/* ===== ハンバーガーメニュー (常時表示) ===== */
+#nav-toggle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 28px;
+    height: 20px;
+    cursor: pointer;
+}
+#nav-toggle span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background: #f0f0f0;
+    border-radius: 2px;
+    transition: all 0.4s ease;
+}
+/* ×マークのアニメーション */
+#nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 7.5px);
+}
+#nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+#nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -7.5px);
+}
+
+/* ===== サイドナビゲーション (#nav-links) ===== */
+#nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px; 
+    max-width: 80vw; 
+    height: 100vh;
+    background: rgba(30, 30, 30, 0.95); 
+    backdrop-filter: blur(8px);
+    z-index: 1500; 
+    padding: 100px 30px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    
+    transform: translateX(100%);
+    transition: transform 0.4s ease-in-out;
+    box-shadow: -5px 0 20px rgba(0,0,0,0.5);
+    overflow-y: auto;
+}
+
+#nav-links.show {
+    transform: translateX(0);
+}
+
+#nav-links a {
+    color: #f0f0f0;
+    text-decoration: none;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    text-align: left;
+    transition: 0.3s;
+    font-weight: 300;
+}
+
+#nav-links a:last-child {
+    border-bottom: none;
+}
+
+#nav-links a:hover {
+    color: #bbb; 
+    padding-left: 10px; 
+}
+
+
+/* ===== フェードアップ (共通) ===== */
+.fadeup {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1.2s ease, transform 1.2s ease;
+}
+.fadeup.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =======================================================
+ * TOPページ用スタイル
+ * ======================================================= */
+
+/* ===== ヒーローヘッダー (TOPページ: index.html) ===== */
+.hero-header {
+    position: relative;
+    width: 100%;
+    height: 100vh; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #f0f0f0;
+}
+
+.hero-header .hero-content { 
+    max-width: 800px;
+    padding: 20px;
+}
+
+.hero-header h1 {
+    font-size: 3.8rem;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 20px rgba(255,255,255,0.25);
+}
+
+.hero-header h3 {
+    font-size: 1.5rem;
+    color: #bbb;
+    letter-spacing: 2px;
+}
+
+/* ===== 各セクション (TOPページ) ===== */
+section.intro {
+    background: rgba(15, 15, 15, 0.85);
+    text-align: center;
+    padding: 120px 20px 160px;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(4px);
+}
+
+section.intro .inner {
+    position: relative;
+    z-index: 1;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+section.intro h2 {
+    font-size: 2.2rem;
+    color: #fff; /* 共通カラーを維持 */
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    text-shadow: 0 0 15px rgba(255,255,255,0.15);
+}
+
+/* ===== コンテンツ横並び (TOPページ) ===== */
+.content-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-bottom: 100px; 
+}
+
+.content-wrap.reverse {
+    flex-direction: row-reverse;
+}
+
+.slideshow {
+    flex: 1 1 48%;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 0 25px rgba(0,0,0,0.5);
+    position: relative;
+}
+
+.slideshow img {
+    width: 100%;
+    display: none;
+    transition: opacity 1.2s ease;
+}
+
+.slideshow img.active {
+    display: block;
+    animation: fadein 2s ease forwards;
+}
+
+@keyframes fadein {
+    from { opacity: 0; transform: scale(1.05); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.description {
+    flex: 1 1 48%;
+    text-align: left;
+    line-height: 1.9;
+    font-size: 1.1rem;
+}
+
+.description p {
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 40px;
+    background: transparent;
+    border: 1px solid #999;
+    color: #f0f0f0;
+    text-decoration: none;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    border-radius: 30px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #f0f0f0;
+    color: #111;
+    box-shadow: 0 0 20px rgba(255,255,255,0.3);
+}
+
+/* =======================================================
+ * 各国詳細ページ用スタイル (japan.html, china.html, usa.html)
+ * ======================================================= */
+
+/* ===== メインコンテンツセクション (各国ページ用) ===== */
+.content-section {
+    background: rgba(15, 15, 15, 0.85);
+    padding: 80px 50px;
+    backdrop-filter: blur(4px);
+}
+.content-section .inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.content-section h2 {
+    font-size: 2rem;
+    border-bottom: 2px solid #e0e0e0; 
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    color: #fff; /* 共通カラーを維持 */
+    text-align: center;
+    letter-spacing: 1px;
+}
+.content-section p {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    color: #ccc;
+    margin-bottom: 30px;
+}
+
+/* カードレイアウト (各国ページ用) */
+.card-grid {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+}
+.digital-card {
+    background: rgba(30, 30, 30, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 3px solid #e0e0e0; 
+    border-radius: 4px;
+    padding: 20px;
+    width: 100%;
+    max-width: 450px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+.digital-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255,255,255,0.1);
+}
+.digital-card h3 {
+    font-size: 1.3rem;
+    color: #f0f0f0; 
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+/* ===== 国別動画エリア (各国ページ用) ===== */
+.video-container {
+    background: rgba(15, 15, 15, 0.9);
+    padding: 50px 0;
+    text-align: center;
+}
+.video-container .inner {
+    max-width: 800px; 
+    margin: 0 auto;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    background: #000;
+}
+
+#main-video {
+    width: 100%;
+    height: auto;
+    max-height: 100vh; 
+    object-fit: cover;
+    filter: brightness(80%) contrast(105%); 
+    display: block;
+}
+
+.video-container h2 {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+
+/* =======================================================
+ * フッター (共通)
+ * ======================================================= */
+footer {
+    width: 100%;
+    background: rgba(20, 20, 20, 0.7);
+    backdrop-filter: blur(4px);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ccc;
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    position: relative;
+    opacity: 1; 
+}
+
+/* アニメーション対象のフッターコンテンツ */
+.footer-content.fadeup-footer { 
+    max-width: 900px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1s ease;
+}
+
+.footer-content.fadeup-footer.visible { 
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.footer-links {
+    margin-top: 15px;
+}
+
+.footer-links a {
+    color: #aaa;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: 300;
+    transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #fff;
+    border-bottom: 1px solid #fff;
+}
+
+
+/* =======================================================
+ * レスポンシブ対応
+ * ======================================================= */
+@media (max-width: 768px) {
+    /* ヒーローヘッダーの高さ (モバイルサイズ) */
+    .hero-header,
+    .country-hero { 
+        height: 100vh; 
+    }
+
+    .hero-header h1 { font-size: 2.8rem; }
+    .hero-header h3 { font-size: 1.3rem; }
+    .country-hero h1 { font-size: 2.5rem; }
+    .country-hero p { font-size: 1.2rem; }
+
+    /* TOPページ コンテンツ */
+    section.intro { padding: 80px 20px; }
+    .content-wrap { flex-direction: column; gap: 30px; margin-bottom: 60px; }
+    .content-wrap.reverse { flex-direction: column; } 
+    
+    /* 各国ページ コンテンツ */
+    .content-section { padding: 50px 20px; }
+    .video-container { padding: 30px 10px; }
+    .video-container .inner { border-radius: 4px; }
+    .digital-card { max-width: 100%; }
+}

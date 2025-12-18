@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>マレーシアのデジタル事情</title>
+  <link rel="stylesheet" href="css_project/my_page.css">
+  <style>
+    /* 共通アニメーション効果 */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      
+    }
+    .fade-in.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav container">
+      <div class="brand">マレーシアと日本のデジタル事情</div>
+      <nav class="menu">
+        <a href="../index.html">ホーム</a>
+        <a href="malaysia.html" class="active">マレーシア</a>
+        <a href="japan.html">日本</a>
+        <a href="video.html">動画やyoutube</a>
+        <a href="compare.html">比較まとめ</a>
+      </nav>
+    </div>
+  </header>
+
+  
+  <main class="container">
+    <section id="malaysia" class="fade-in">
+      <h2 class="mal-h">マレーシアのデジタル事情</h2>
+      <p class="subtitle">政府の方針、通信インフラ、キャッシュレスやスタートアップの動き。</p>
+      
+      <div class="grid">
+        <div class="card">
+          <span class="badge">政府・公共</span>
+          <h3>電子政府と政策</h3>
+          <p>例：デジタルID・オンラインポータル・デジタル経済推進策。</p>
+          <img src="img_project/OIP.jpg" alt="マレーシアのデジタルID" style="width:100%;border-radius:8px;margin-top:8px;">
+        </div>
+
+        <div class="card">
+          <span class="badge">通信</span>
+          <h3>モバイル・ブロードバンド</h3>
+          <p>例：4G普及率、5G展開の進捗。地方部での接続性改善が課題。</p>
+          <img src="img_project/binasat_1673011765.jpg" alt="マレーシアのモバイル・ブロードバンド" style="width:100%;border-radius:8px;margin-top:8px;">
+        </div>
+
+        <div class="card">
+          <span class="badge">社会・市場</span>
+          <h3>キャッシュレス・EC</h3>
+          <p>例：eウォレット／QR決済の採用、EC成長、英語対応サービスの利点。</p>
+          <img src="img_project/SS2-market7-768x576.jpg" alt="マレーシアのキャッシュレス" style="width:100%;border-radius:8px;margin-top:8px;">
+          <p style="font-size:14px;color:#a9b3d1;">※写真：マレーシアのQR決済例（サンプル）</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> 相模原ビジネス専門学校
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // アニメーションをスクロール時に実行
+    const fadeIns = document.querySelectorAll('.fade-in');
+    const showOnScroll = () => {
+      fadeIns.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 50) {
+          el.classList.add('show');
+        }
+      });
+    };
+    window.addEventListener('scroll', showOnScroll);
+    window.addEventListener('load', showOnScroll);
+  </script>
+</body>
+</html>

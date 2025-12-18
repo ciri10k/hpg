@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>マレーシアと日本のデジタル事情 — ホーム</title>
+  <link rel="stylesheet" href="css_project/my_page.css">
+
+  <!-- AOS (スクロールアニメーション用) -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+    <div class="nav container">
+      <div class="brand">マレーシアと日本のデジタル事情</div>
+      <nav class="menu">
+        <a href="../index.html" class="active">ホーム</a>
+        <a href="malaysia.html">マレーシア</a>
+        <a href="japan.html">日本</a>
+        <a href="video.html">動画やyoutube</a>
+        <a href="compare.html">比較まとめ</a>
+      </nav>
+    </div>
+  </header>
+  <!-- ==== ヒーローセクション ==== -->
+  <section class="hero" data-aos="fade-up">
+    <h1>マレーシアと日本のデジタル事情</h1>
+    <p>2つの国のデジタル社会を一目で比較！</p>
+    <a href="#home" class="btn">もっと見る</a>
+  </section>
+  
+
+  <script>
+    const header = document.getElementById('main-main-header');
+    header.style.cursor = 'pointer';
+    header.addEventListener('click', () => {
+      window.location.href = 'home.html';
+    })
+  </script>
+
+  <main class="container">
+    <section id="home">
+      <h1 data-aos="fade-right">マレーシアと日本のデジタル事情 — ミニガイド</h1>
+      <p data-aos="fade-left">ここはホームページです。</p>
+      
+      <!-- index.html 用の内容 -->
+      <div class="grid">
+        <article class="card" data-aos="zoom-in" >
+          <span class="badge">概要</span>
+          <h3>このサイトの目的</h3>
+          <p>マレーシアと日本のデジタル行政、通信インフラ、キャッシュレス／EC、DXの動向を簡潔に比較するためのミニサイトです。<br>
+          インターネット普及率、キャッシュレス決済、電子政府、5G通信などを中心に、両国のデジタル社会を学ぶことができます。</p>
+        </article>
+
+        <article class="card" data-aos="zoom-in" data-aos-delay="200">
+          <span class="badge">構成</span>
+          <h3 class="home-h">ページ一覧</h3>
+          <ul>
+            <li>ホーム（このページ）</li>
+            <li>マレーシア：政策・インフラ・市場</li>
+            <li>日本：デジタル庁・通信・社会</li>
+            <li>動画やYouTube：マレーシアAI発展や日本Uniqlo自払い時やり方</li>
+            <li>比較：主要指標と強み・課題</li>
+          </ul>
+        </article>
+
+        <article class="card" data-aos="zoom-in" data-aos-delay="400">
+          <span class="badge">使い方</span>
+          <h3>編集のコツ</h3>
+          <p>数値はサンプルです。統計を入れる際は「出典（機関名・年・URL）」を付けると説得力が上がります。</p>
+        </article>
+      </div>
+
+      <!-- ==== 追加：インフォグラフィック ==== -->
+      <h2 data-aos="fade-up">インターネット普及率（例）</h2>
+      <div class="stats" data-aos="fade-up" data-aos-delay="300">
+        <div class="bar"><span style="width: 92%;">日本 92%</span></div>
+        <div class="bar"><span style="width: 89%;">マレーシア 89%</span></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> 相模原ビジネス専門学校
+  </footer>
+  
+  <!-- JavaScript -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+  <!-- AOS.js 読み込み -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,  // アニメーション速度 (ms)
+      once: true       // 一度だけ実行
+    });
+  </script>
+</body>
+</html>
