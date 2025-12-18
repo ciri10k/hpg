@@ -214,7 +214,6 @@ header {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
     padding: 14px 40px;
     font-size: 16px;
     font-weight: bold;
@@ -225,7 +224,14 @@ header {
     color: black;
     z-index: 9999;
     transition: 0.35s ease;
+    animation: button-float 2.5s ease-in-out infinite;
 }
+
+    /* Subtle idle animation */
+    @keyframes button-float {
+        0%, 100% { transform: translate(-50%, -50%) translate(0); }
+        50% { transform: translate(-50%, -50%) translateY(-7px); }
+    }
 
 .detail-btn:hover {
     transform: translate(-50%, -50%) scale(1.08);
@@ -858,16 +864,6 @@ header {
             0 0 45px rgba(237, 255, 102, 0.6);
     }
 
-    /* Subtle idle animation */
-    @keyframes qr-float {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-6px); }
-    }
-
-    .qrcode {
-        animation: qr-float 4.5s ease-in-out infinite;
-    }
-
     /* CLICK = ENLARGED STATE */
     .qrcode.enlarged {
         position: fixed;
@@ -905,7 +901,7 @@ header {
 
 
 .country-text:hover {
-    transform: scale(1.06);
+    transform: scale(1.01);
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.8),
                  0 0 16px rgba(255, 255, 255, 0.6);
 }
