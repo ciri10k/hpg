@@ -22,6 +22,13 @@ body {
   padding-top: 80px;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+
 /* ---- 動くサイバーパンク背景 ---- */
 body::before {
   content: "";
@@ -223,6 +230,12 @@ footer { color: var(--muted); text-align: center; padding: 28px 0; }
 
 
 @media (max-width: 768px) {
+
+  main.container {
+    max-width: 100%;
+    padding: 24px 12px;
+  }
+
   .nav.container {
     flex-direction: column;
     align-items: flex-start;
@@ -242,6 +255,28 @@ footer { color: var(--muted); text-align: center; padding: 28px 0; }
 
   body {
     padding-top: 120px; /* モバイルは header が縦に伸びる */
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .card {
+    border-radius: 10px;
+    padding: 16px;
+    box-shadow: 0 0 14px rgba(255,62,193,0.35);
+  }
+
+  .jp-h {
+    text-align: center;
+    font-size: 1.4rem;
+  }
+
+  .subtitle {
+    text-align: center;
+    font-size: 0.95rem;
+    margin-bottom: 24px;
   }
 }
 

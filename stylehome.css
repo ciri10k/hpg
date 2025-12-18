@@ -811,7 +811,7 @@ header {
     opacity: 1 !important;
     color: white !important;
     position: absolute;
-    left: 75%;
+    left: 150px;
     bottom: 40px;
     font-size: 120px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
