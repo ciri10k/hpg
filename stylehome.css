@@ -27,7 +27,7 @@ header {
     background-color: transparent;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    padding: 3px;
+    padding: 6px;
 }
 
 .head-left {
@@ -803,7 +803,6 @@ header {
 
 /* Impede que o texto do país desapareça com o autoBlur */
 .country-text {
-    cursor: pointer;
     transition:
         transform 0.65s ease,
         text-shadow 0.65s ease,
@@ -872,10 +871,10 @@ header {
     /* CLICK = ENLARGED STATE */
     .qrcode.enlarged {
         position: fixed;
-        left: 40%;
-        bottom: 40%;
+        left: 35%;
+        bottom: 30%;
         width: min(260px, 70vw);
-        transform: scale(1.5);
+        transform: scale(1.9);
         animation: ease 0.3s;
         box-shadow:
             0 0 25px rgba(255, 255, 255, 0.6),
