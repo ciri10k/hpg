@@ -231,52 +231,53 @@ footer { color: var(--muted); text-align: center; padding: 28px 0; }
 
 @media (max-width: 768px) {
 
+  /* ===== 全体 ===== */
+  body {
+    padding-top: 120px; /* 固定ヘッダー分 */
+  }
+
   main.container {
     max-width: 100%;
-    padding: 24px 12px;
+    padding: 0; /* セクション側で管理 */
   }
 
-  .nav.container {
-    flex-direction: column;
-    align-items: flex-start;
+  /* ===== セクション ===== */
+  section {
+    padding: 50px 20px;
   }
 
-  .menu {
-    width: 100%;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 10px;
-  }
-
-  .menu a {
-    padding: 6px 0;
-    font-size: 14px;
-  }
-
-  body {
-    padding-top: 120px; /* モバイルは header が縦に伸びる */
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-
-  .card {
-    border-radius: 10px;
-    padding: 16px;
-    box-shadow: 0 0 14px rgba(255,62,193,0.35);
-  }
-
-  .jp-h {
+  /* ===== 見出し ===== */
+  h2 {
     text-align: center;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
 
   .subtitle {
     text-align: center;
-    font-size: 0.95rem;
-    margin-bottom: 24px;
+    font-size: 1rem;
+    margin-bottom: 30px;
   }
+
+  /* ===== グリッド → 縦並び ===== */
+  .grid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  /* ===== カード ===== */
+  .card {
+    width: 100%;
+    padding: 18px;
+    border-radius: 10px;
+    box-shadow: 0 0 14px rgba(255,62,193,0.35);
+  }
+
+  .card img {
+    margin-top: 12px;
+    border-radius: 8px;
+  }
+
 }
+
 

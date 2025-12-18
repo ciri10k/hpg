@@ -811,7 +811,7 @@ header {
     opacity: 1 !important;
     color: white !important;
     position: absolute;
-    left: 150px;
+    right: 150px;
     bottom: 40px;
     font-size: 120px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -971,18 +971,15 @@ header {
     /* COUNTRY NAME */
     .country-text {
         font-size: 42px;
-        right: 18px;
-        bottom: 38px;
+        right: 20px;
+        bottom: 50px;
+        padding: 10px 14px;
     }
 
     /* PREVENT OVERFLOW */
     body {
         overflow-x: hidden;
     }
-
-    .country-text {
-    padding: 10px 14px;
-}
 
     .sec1-video {
         width: 100vw;
@@ -993,8 +990,5 @@ header {
     .flag:active {
         transform: scale(1.15);
         filter: drop-shadow(0 0 10px rgba(255,255,255,0.8));
-}
-
-
-
+    }
 }
