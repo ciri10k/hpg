@@ -27,7 +27,7 @@ header {
     background-color: transparent;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    padding: 6px;
+    padding: 10px;
 }
 
 .head-left {
@@ -811,7 +811,7 @@ header {
     opacity: 1 !important;
     color: white !important;
     position: absolute;
-    right: 150px;
+    left: 75%;
     bottom: 40px;
     font-size: 120px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -875,7 +875,7 @@ header {
         bottom: 30%;
         width: min(260px, 70vw);
         transform: scale(2.4);
-        animation: ease 0.3s;
+        animation: ease 0.6s;
         box-shadow:
             0 0 25px rgba(255, 255, 255, 0.6),
             0 0 70px rgba(237, 255, 102, 0.9);
@@ -895,7 +895,7 @@ header {
         }
 
         .qrcode.enlarged {
-            width: min(400px, 160vw);
+            width: min(300px, 120vw);
             max-height: 60vh;
             left: 50%;
             bottom: 50%;
