@@ -871,6 +871,9 @@ header {
 
     /* CLICK = ENLARGED STATE */
     .qrcode.enlarged {
+        position: fixed;
+        left: 40%;
+        bottom: 40%;
         width: min(260px, 70vw);
         transform: scale(1.5);
         animation: ease 0.3s;
